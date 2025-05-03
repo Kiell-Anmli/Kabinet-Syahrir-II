@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Kabinet Syahrir II</title>
+  <style>
+    :root {
+      --bg-url: url('https://img.freepik.com/free-vector/ripped-newspaper-flower-stem-old-brown-paper-banner-vector_53876-136540.jpg?semt=ais_hybrid&w=740');
+      --bg-light: rgba(255, 255, 255, 0.95);
+      --bg-dark: rgba(34, 34, 34, 0.95);
+      --text-light: #2c3e50;
+      --text-dark: #f1f1f1;
+    }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      background: var(--bg-url) no-repeat center center fixed;
+      background-size: cover;
+      transition: background-color 0.3s;
+    }
+
+    body.dark .container {
+      background: var(--bg-dark);
+      color: var(--text-dark);
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 50px auto 100px;
+      background: var(--bg-light);
+      border-radius: 14px;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.1);
+      overflow: hidden;
+      transition: background 0.3s, color 0.3s;
+    }
+
+    .slide {
+      display: none;
+      padding: 30px;
+      animation: slideIn 0.4s ease-in-out;
+    }
+
+    .slide.active {
+      display: block;
+    }
+
+    @keyframes slideIn {
+      from { opacity: 0; transform: translateX(50px); }
+      to { opacity: 1; transform: translateX(0); }
+    }
+
+    .nav {
+      position: fixed;
+      bottom: 20px;
+      left: 0;
+      right: 0;
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      z-index: 10;
+    }
+
+    .nav button {
+      background: #222;
+      border: none;
+      padding: 12px 18px;
+      color: white;
+      font-size: 1.2rem;
+      border-radius: 50%;
+      cursor: pointer;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    }
+
+    .nav button:hover {
+      background: #444;
+    }
+
+    .toggle-theme {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      background: #333;
+      color: white;
+      border: none;
+      padding: 10px 14px;
+      border-radius: 8px;
+      cursor: pointer;
+      z-index: 100;
+    }
+
+    h2 {
+      color: inherit;
+    }
+
+    ul {
+      padding-left: 20px;
+    }
+  </style>
+</head>
+<body>
+  <button class="toggle-theme" onclick="toggleTheme()">Mode Terang/Gelap</button>
+
+  <div class="container">
+    <div class="slide active">
+      <h2>Kabinet Syahrir II (12 Maret 1946 - 2 Oktober 1946)</h2>
+      <p>Setelah Kabinet Syahrir I berakhir, Sutan Syahrir kembali diangkat sebagai perdana menteri meskipun belum diadakan pemilu. Kabinet Syahrir II mulai bekerja sejak 12 Maret 1946.</p>
+    </div>
+
+    <div class="slide">
+      <h2>Tekanan dari Persatuan Perjuangan</h2>
+      <p>Kabinet ini akhirnya jatuh pada 2 Oktober 1946 karena tekanan politik dari Persatuan Perjuangan yang dipimpin oleh Tan Malaka. Meskipun berasal dari golongan kiri, Syahrir dan Tan Malaka memiliki pandangan perjuangan yang berbeda.</p>
+    </div>
+
+    <div class="slide">
+      <h2>Diplomasi vs Perlawanan Bersenjata</h2>
+      <ul>
+        <li><strong>Syahrir:</strong> Mendukung diplomasi sebagai cara utama menyelesaikan konflik dengan Belanda, karena Indonesia belum cukup kuat untuk menghadapi kekuatan militer Sekutu dan Belanda secara langsung.</li>
+        <li><strong>Tan Malaka:</strong> Menolak diplomasi dan menganggap kemerdekaan penuh hanya bisa dicapai dengan perlawanan bersenjata hingga ada pengakuan mutlak dari Belanda dan Sekutu.</li>
+      </ul>
+    </div>
+
+    <div class="slide">
+      <h2>Penculikan Syahrir</h2>
+      <p>Perbedaan tajam tersebut memuncak ketika kelompok Tan Malaka menculik Perdana Menteri Syahrir pada 26 Juni 1946 di Solo (Surakarta). Peristiwa ini menjadi titik akhir bagi Kabinet Syahrir II.</p>
+    </div>
+
+    <div class="slide">
+      <h2>Persatuan Perjuangan (PP)</h2>
+      <p>Persatuan Perjuangan dibentuk pada awal 1946 di Purwokerto, Jawa Tengah, oleh Tan Malaka. Organisasi ini bertujuan menyatukan berbagai kelompok politik dan laskar dalam perjuangan meraih kemerdekaan penuh. PP menghimpun 141 organisasi, termasuk Masyumi dan PNI, yang menentang hasil-hasil diplomasi Kabinet Syahrir.</p>
+    </div>
+  </div>
+
+  <div class="nav">
+    <button onclick="changeSlide(-1)">&#8592;</button>
+    <button onclick="changeSlide(1)">&#8594;</button>
+  </div>
+
+  <script>
+    let current = 0;
+    const slides = document.querySelectorAll('.slide');
+
+    function changeSlide(dir) {
+      slides[current].classList.remove('active');
+      current = (current + dir + slides.length) % slides.length;
+      slides[current].classList.add('active');
+    }
+
+    function toggleTheme() {
+      document.body.classList.toggle('dark');
+    }
+  </script>
+</body>
+      </html>
+      
